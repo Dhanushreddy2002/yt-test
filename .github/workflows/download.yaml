@@ -22,7 +22,7 @@ jobs:
         env:
           QUERY_URL: ${{ secrets.QUERY_URL }}
       - name: Save Videos
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: output.mp4
           path: output.mp4

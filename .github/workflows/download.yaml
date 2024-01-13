@@ -26,3 +26,4 @@ jobs:
         with:
           name: output.mp4
           path: output.mp4
+          retention-days: 2

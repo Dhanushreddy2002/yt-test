@@ -16,12 +16,11 @@ jobs:
         with:
           python-version: '3.10.13'
           cache: "pip"
-      - run: pip install -r requirements.txt
       - name: Download
         run: bash download.sh
         env:
           QUERY_URL: ${{ secrets.QUERY_URL }}
-      - name: Save Images
+      - name: Save Videos
         uses: actions/upload-artifact@v3
         with:
           name: videos

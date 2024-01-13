@@ -1,0 +1,26 @@
+name: download
+
+on:
+  workflow_dispatch:
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: ffmpeg
+          version: latest
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10.13'
+          cache: "pip"
+      - run: pip install -r requirements.txt
+      - name: Download
+        run: bash download.sh
+      - name: Save Images
+        uses: actions/upload-artifact@v3
+        with:
+          name: videos
+          path: videos
